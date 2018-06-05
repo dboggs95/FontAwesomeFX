@@ -326,6 +326,7 @@ public enum MaterialDesignIcon implements GlyphIcons {
     CAMERA_REAR_VARIANT("\uf107"),
     CAMERA_SWITCH("\uf108"),
     CAMERA_TIMER("\uf109"),
+    CANCEL("\uf739"),
     CANDLE("\uf5E2"),
     CANDYCANE("\uf10A"),
     CAR("\uf10B"),
