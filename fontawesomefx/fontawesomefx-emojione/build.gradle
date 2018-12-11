@@ -1,11 +1,11 @@
 apply plugin: 'application'
 
-mainClassName = 'de.jensd.fx.glyphs.emijione.demo.EmojiOneDemoApp'
+mainClassName = "$moduleName/de.jensd.fx.glyphs.emojione.demo.EmojiOneDemoApp"
 
 version '2.2.7-2'
 
 dependencies {
-    compile project(':fontawesomefx-commons')
+    implementation project(':fontawesomefx-commons')
 }
 
 jar {

@@ -1,11 +1,11 @@
 apply plugin: 'application'
 
-mainClassName = 'de.jensd.fx.glyphs.octicons.demo.OctIconsDemoApp'
+mainClassName = "$moduleName/de.jensd.fx.glyphs.octicons.demo.OctIconsDemoApp"
 
 version '4.3.0-5'
 
 dependencies {
-    compile project(':fontawesomefx-commons')
+    implementation project(':fontawesomefx-commons')
 }
 
 jar {
