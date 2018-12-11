@@ -30,7 +30,7 @@ import javafx.stage.Stage;
 public class FontAwesomeIconsDemoApp extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
 
         HBox buttonBox1 = new HBox();
         for (int i = 0; i < 10; i++) {
