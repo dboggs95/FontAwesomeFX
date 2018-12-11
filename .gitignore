@@ -1,7 +1,8 @@
 **/.idea/
 **/target/
+**/out/
 **/.nb-gradle/
-**/*.nb-gradle.properties
+**/.nb-gradle.properties
 **/build/
 **/.gradle/
 .DS_STORE
