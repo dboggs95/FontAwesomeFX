@@ -1,8 +1,10 @@
-.idea/
-target/
-.nb-gradle/
-.nb-gradle.properties
-build/
-.gradle/
+**/.idea/
+**/target/
+**/out/
+**/.nb-gradle/
+**/.nb-gradle.properties
+**/build/
+**/.gradle/
 .DS_STORE
 bintray.properties
+**/*.iml

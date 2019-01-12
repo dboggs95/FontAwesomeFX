@@ -1,11 +1,11 @@
 apply plugin: 'application'
 
-mainClassName = 'de.jensd.fx.glyphs.fontawesome.demo.FontAwesomeIconsDemoApp'
+mainClassName = "$moduleName/de.jensd.fx.glyphs.fontawesome.demo.FontAwesomeIconsDemoApp"
 
 version '4.7.0-5'
 
 dependencies {
-    compile project(':fontawesomefx-commons')
+    implementation project(':fontawesomefx-commons')
 }
 
 jar {

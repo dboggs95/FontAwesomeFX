@@ -1,11 +1,11 @@
 apply plugin: 'application'
 
-mainClassName = 'de.jensd.fx.glyphs.weathericons.demo.WeatherIconsDemoApp'
+mainClassName = "$moduleName/de.jensd.fx.glyphs.weathericons.demo.WeatherIconsDemoApp"
 
 version '2.0.10-5'
 
 dependencies {
-    compile project(':fontawesomefx-commons')
+    implementation project(':fontawesomefx-commons')
 }
 
 jar {

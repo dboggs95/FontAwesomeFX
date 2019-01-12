@@ -1,12 +1,12 @@
 apply plugin: 'application'
 
-mainClassName = 'de.jensd.fx.glyphs.materialstackicons.demo.StackDemo'
+mainClassName = "$moduleName/de.jensd.fx.glyphs.materialstackicons.demo.StackDemo"
 
 version '2.1-5'
 
 dependencies {
-    compile project(':fontawesomefx-commons')
-    compile project(':fontawesomefx-materialicons')
+    implementation project(':fontawesomefx-commons')
+    implementation project(':fontawesomefx-materialicons')
 }
 
 jar {

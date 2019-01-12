@@ -16,8 +16,10 @@
  */
 package de.jensd.fx.glyphs;
 
-import com.sun.javafx.css.ParsedValueImpl;
-import com.sun.javafx.css.parser.CSSParser;
+import javafx.css.*;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -26,11 +28,6 @@ import java.util.logging.Logger;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.css.CssMetaData;
-import javafx.css.SimpleStyleableObjectProperty;
-import javafx.css.StyleConverter;
-import javafx.css.Styleable;
-import javafx.css.StyleableProperty;
 import javafx.fxml.FXML;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -45,7 +42,7 @@ public abstract class GlyphIcon<T extends Enum<T> & GlyphIcons> extends Text {
 
     public final static Double DEFAULT_ICON_SIZE = 12.0;
     public final static String DEFAULT_FONT_SIZE = "1em";
-    private final static CSSParser CSS_PARSER = new CSSParser();
+    private final static CssParser CSS_PARSER = new CssParser();
 
     private StringProperty glyphStyle; // needed as setStyle() is final in javafx.scene.text.Text 
     private String glyphFontFamily;
@@ -137,12 +134,12 @@ public abstract class GlyphIcon<T extends Enum<T> & GlyphIcons> extends Text {
         glyphSizeProperty().setValue(size);
     }
 
-    // kept for compability reasons and for SceneBuilder/FXML support
+    // kept for compatibility reasons and for SceneBuilder/FXML support
     public final String getSize() {
         return getGlyphSize().toString();
     }
 
-    // kept for compability reasons and for SceneBuilder/FXML support
+    // kept for compatibility reasons and for SceneBuilder/FXML support
     public final void setSize(String sizeExpr) {
         Number s = convert(sizeExpr);
         setGlyphSize(s);
@@ -239,7 +236,24 @@ public abstract class GlyphIcon<T extends Enum<T> & GlyphIcons> extends Text {
     }
 
     public Number convert(String sizeString) {
-        ParsedValueImpl parsedValueImpl = CSS_PARSER.parseExpr("", sizeString);
-        return (Number) parsedValueImpl.convert(getFont());
+
+
+        // Since CssParser.parseExpr is not visible we cannot directly call it anymore
+        // Resorting to a reflection to replace the following code:
+        //    ParsedValueImpl parsedValueImpl = CSS_PARSER.parseExpr("", sizeString);
+
+        Method method = null;
+        try {
+            method = CssParser.class.getDeclaredMethod("parseExpr", String.class, String.class);
+            method.setAccessible(true);
+        } catch (NoSuchMethodException ex) {
+            throw new RuntimeException( ex );
+        }
+        try {
+            ParsedValue parsedValue = (ParsedValue) method.invoke(CSS_PARSER, "", sizeString);
+            return (Number) parsedValue.convert(getFont());
+        } catch (IllegalAccessException | InvocationTargetException ex) {
+            throw new RuntimeException( "Method 'CssParser.parseExpr is not found", ex );
+        }
     }
 }

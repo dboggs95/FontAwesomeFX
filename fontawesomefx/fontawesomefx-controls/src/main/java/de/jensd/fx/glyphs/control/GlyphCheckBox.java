@@ -26,8 +26,9 @@ public class GlyphCheckBox extends CheckBox {
         setSelectedIcon(selectedIcon);
     }
 
+
     @Override
-    protected Skin createDefaultSkin() {
+    protected Skin<?> createDefaultSkin() {
         return new GlyphCheckBoxSkin(this);
     }
 
