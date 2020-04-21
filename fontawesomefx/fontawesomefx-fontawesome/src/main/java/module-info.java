@@ -11,4 +11,7 @@ module de.jensd.fx.fontawesomefx.fontawesome {
     exports de.jensd.fx.glyphs.fontawesome.demo;
     exports de.jensd.fx.glyphs.fontawesome.utils;
 
+    opens de.jensd.fx.glyphs.fontawesome;
+
+
 }

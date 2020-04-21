@@ -35,14 +35,14 @@ public class GlyphsFactory {
      * @param clazz The IconView class containing the TTF_PATH field pointing to the TTF file
      */
     public GlyphsFactory(Class clazz) {
-        loadFont(getPathToFontFromClass(clazz));
+        loadFont(clazz, getPathToFontFromClass(clazz));
     }
 
     /**
      * @param pathToIconFont The TTF_PATH as String pointing to the TTF file
      */
     public GlyphsFactory(String pathToIconFont) {
-        loadFont(pathToIconFont);
+        loadFont(GlyphsFactory.class, pathToIconFont);
     }
 
     private String getPathToFontFromClass(Class clazz) {
@@ -56,10 +56,9 @@ public class GlyphsFactory {
         return path;
     }
 
-    private final void loadFont(String pathToIconFont) {
+    private final void loadFont(Class moduleClass, String pathToIconFont) {
         try {
-            Font.loadFont(GlyphsFactory.class
-                    .getResource(pathToIconFont).openStream(), 10.0);
+            Font.loadFont(moduleClass.getResource(pathToIconFont).openStream(), 10.0);
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
