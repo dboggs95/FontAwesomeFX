@@ -1,11 +1,4 @@
-FontAwesomeFX
-
-Kudos to Dave Gandy who has created an incredible cool icon font called [Font Awesome][1].
-
-FontAwesomeFX
-
- [ ![Download](https://api.bintray.com/packages/jerady/maven/FontAwesomeFX/images/download.svg) ](https://bintray.com/jerady/maven/FontAwesomeFX/_latestVersion)
-
+# FontAwesomeFX
 
 Kudos to Dave Gandy who has created an incredible cool icon font called [Font Awesome][1].
 
@@ -16,15 +9,16 @@ Web icon fonts fit perfectly into JavaFX as
 * incredible lightweight (one font 694 icons)
 
 
-#Currently supported (and build-in):
+## Currently supported (and build-in):
  * [FontAwesome 4.7.0][1]
- * [WeatherIcons 2.0][13] 
+ * [WeatherIcons 2.0.10][13] 
  * [Material Icons 2.2][15]
  * [Material Design Font 1.7.22][12]
  * [Octicons 4.3.0][16]
  * [525Icons 3.0][21]
+ * [EmojiOne 2.2.7][24]
 
-#Usage/Details
+## Usage/Details
 * [8.11 announcement][23]
 * [8.10 announcement][22]
 * [8.9 announcement][20]
@@ -42,22 +36,22 @@ Web icon fonts fit perfectly into JavaFX as
 * [blog post2][3]
 * [blog post1][2]
 
-#Maven
+## Maven
 
-**Since FontAwesomeFX 8.10 I moved to [Bintray](https://bintray.com/jerady/maven/FontAwesomeFX/view), so you have to add the bintray repo to you build file as it is not yet available at Maven Central!**
+**I recommend using ZuluFX 17 as your OpenJDK build. It bundles OpenJFX 17. Then all you need is e(fx)clipse to build in Eclipse. Otherwise, you might need to do addition setup.**
+**I have forked this project from Jerady's Bitbucket repo (https://bitbucket.org/Jerady/fontawesomefx/src/master/). I do not have the jars uploaded to a repository, so you need to clone the project and use maven install to add it to your local repository.**
 ```
     <dependency>
         <groupId>de.jensd</groupId>
         <artifactId>fontawesomefx</artifactId>
-        <version>8.9</version>
+        <version>2022.0</version>
     </dependency>
 ```
 
-#License
+## License
 FontAwesomeFX is licensed under the [Apache 2.0 license][4].
-If this license is not suitable, please contact me to discuss an alternative license.
 
-[1]: http://fortawesome.github.com/Font-Awesome/
+[1]: https://fontawesome.com/v4.7/
 [2]: http://www.jensd.de/wordpress/?p=692
 [3]: http://www.jensd.de/wordpress/?p=733
 [4]: http://www.apache.org/licenses/LICENSE-2.0.html
@@ -80,3 +74,4 @@ If this license is not suitable, please contact me to discuss an alternative lic
 [21]:http://525icons.com/
 [22]:http://www.jensd.de/wordpress/?p=2360
 [23]:http://www.jensd.de/wordpress/?p=2397
+[24]:https://github.com/joypixels/emojione

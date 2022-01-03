@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.jensd</groupId>
+	<artifactId>fontawesomefx</artifactId>
+	<version>2022.0</version>
+	<packaging>pom</packaging>
+	<name>FontAwesomeFX</name>
+	<description>Use WebFonts as icon source for JavaFX applications. Converted to Maven and updated to Java 17.</description>
+	<url>https://github.com/dboggs95/FontAwesomeFX</url>
+	<developers>
+		<developer>
+			<name>Jens Deters</name>
+			<url>https://bitbucket.org/Jerady/fontawesomefx/overview</url>
+			<organization>jerady</organization>
+		</developer>
+	</developers>
+	<licenses>
+		<license>
+			<name>Apache 2.0</name>
+		</license>
+	</licenses>
+	<scm>
+		<url>https://github.com/dboggs95/FontAwesomeFX</url>
+	</scm>
+
+	<modules>
+		<module>fontawesomefx-commons</module>
+		<module>fontawesomefx-controls</module>
+		<module>fontawesomefx-emojione</module>
+		<module>fontawesomefx-fontawesome</module>
+		<module>fontawesomefx-icons525</module>
+		<module>fontawesomefx-materialdesignfont</module>
+		<module>fontawesomefx-materialicons</module>
+		<module>fontawesomefx-materialstackicons</module>
+		<module>fontawesomefx-octicons</module>
+		<module>fontawesomefx-weathericons</module>
+	</modules>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.1</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	
+	<!-- Use the appropriate build of ZuluFX OpenJDK for your needs. -->
+	<profiles>
+		<profile>
+			<id>jdk-8</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<java.version>1.8</java.version>
+			</properties>
+		</profile>
+		<profile>
+			<id>jdk-11</id>
+			<activation>
+				<jdk>11</jdk>
+			</activation>
+			<properties>
+				<java.version>11</java.version>
+			</properties>
+		</profile>
+		<profile>
+			<id>jdk-17</id>
+			<activation>
+				<jdk>17</jdk>
+			</activation>
+			<properties>
+				<java.version>17</java.version>
+			</properties>
+		</profile>
+	</profiles>
+</project>
